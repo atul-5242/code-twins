@@ -21,7 +21,7 @@ jobs:
           cat ~/.ssh/known_hosts
       - name: ssh and Deploy Everything
         run: |
-            ssh -i ~/ssh_key -o StrictHostKeyChecking=yes ubuntu@16.171.249.33 << 'EOF'
+            ssh -i ~/ssh_key -o StrictHostKeyChecking=yes -o ServerAliveInterval=60 ubuntu@16.171.249.33 << 'EOF'
             cd /home/ubuntu/code-twins || exit 1
             ls /home/ubuntu/code-twins
             git pull origin main 
