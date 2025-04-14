@@ -3,7 +3,7 @@ import { client } from "@repo/db/client";
 const app = express();
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Hello World Now the Server is auto deploying by CI/CD pipeline finally.");
+  res.send("Hello World Now the Server is auto deploying by CI/CD pipeline finally,Yes Now the site is live.");
 });
 
 app.post("/signup",async (req, res) => {
