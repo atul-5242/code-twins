@@ -72,6 +72,11 @@ Next, you can link your Turborepo to your Remote Cache by running the following 
 npx turbo link
 ```
 
+## Important Command for running pm2:
+  -pm2 start npm --name "web-server" -- start
+  -pm2 start npm --name "http-server" -- start
+  -pm2 start npm --name "ws-server" -- start
+
 ## Useful Links
 
 Learn more about the power of Turborepo:
