@@ -117,6 +117,16 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
+exports.Prisma.SkinLesionScalarFieldEnum = {
+  id: 'id',
+  patientName: 'patientName',
+  imageUrl: 'imageUrl',
+  diagnosis: 'diagnosis',
+  confidence: 'confidence',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   username: 'username',
@@ -133,8 +143,14 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
+  SkinLesion: 'SkinLesion',
   User: 'User'
 };
 

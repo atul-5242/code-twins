@@ -14,6 +14,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
+ * Model SkinLesion
+ * 
+ */
+export type SkinLesion = $Result.DefaultSelection<Prisma.$SkinLesionPayload>
+/**
  * Model User
  * 
  */
@@ -26,8 +31,8 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more SkinLesions
+ * const skinLesions = await prisma.skinLesion.findMany()
  * ```
  *
  *
@@ -47,8 +52,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more SkinLesions
+   * const skinLesions = await prisma.skinLesion.findMany()
    * ```
    *
    *
@@ -145,6 +150,16 @@ export class PrismaClient<
   }>>
 
       /**
+   * `prisma.skinLesion`: Exposes CRUD operations for the **SkinLesion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SkinLesions
+    * const skinLesions = await prisma.skinLesion.findMany()
+    * ```
+    */
+  get skinLesion(): Prisma.SkinLesionDelegate<ExtArgs, ClientOptions>;
+
+  /**
    * `prisma.user`: Exposes CRUD operations for the **User** model.
     * Example usage:
     * ```ts
@@ -593,6 +608,7 @@ export namespace Prisma {
 
 
   export const ModelName: {
+    SkinLesion: 'SkinLesion',
     User: 'User'
   };
 
@@ -612,10 +628,84 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user"
+      modelProps: "skinLesion" | "user"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
+      SkinLesion: {
+        payload: Prisma.$SkinLesionPayload<ExtArgs>
+        fields: Prisma.SkinLesionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SkinLesionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SkinLesionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>
+          }
+          findFirst: {
+            args: Prisma.SkinLesionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SkinLesionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>
+          }
+          findMany: {
+            args: Prisma.SkinLesionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>[]
+          }
+          create: {
+            args: Prisma.SkinLesionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>
+          }
+          createMany: {
+            args: Prisma.SkinLesionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SkinLesionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>[]
+          }
+          delete: {
+            args: Prisma.SkinLesionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>
+          }
+          update: {
+            args: Prisma.SkinLesionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>
+          }
+          deleteMany: {
+            args: Prisma.SkinLesionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SkinLesionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SkinLesionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>[]
+          }
+          upsert: {
+            args: Prisma.SkinLesionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SkinLesionPayload>
+          }
+          aggregate: {
+            args: Prisma.SkinLesionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSkinLesion>
+          }
+          groupBy: {
+            args: Prisma.SkinLesionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SkinLesionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SkinLesionCountArgs<ExtArgs>
+            result: $Utils.Optional<SkinLesionCountAggregateOutputType> | number
+          }
+        }
+      }
       User: {
         payload: Prisma.$UserPayload<ExtArgs>
         fields: Prisma.UserFieldRefs
@@ -774,6 +864,7 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
+    skinLesion?: SkinLesionOmit
     user?: UserOmit
   }
 
@@ -868,6 +959,1065 @@ export namespace Prisma {
   /**
    * Models
    */
+
+  /**
+   * Model SkinLesion
+   */
+
+  export type AggregateSkinLesion = {
+    _count: SkinLesionCountAggregateOutputType | null
+    _avg: SkinLesionAvgAggregateOutputType | null
+    _sum: SkinLesionSumAggregateOutputType | null
+    _min: SkinLesionMinAggregateOutputType | null
+    _max: SkinLesionMaxAggregateOutputType | null
+  }
+
+  export type SkinLesionAvgAggregateOutputType = {
+    id: number | null
+    confidence: number | null
+  }
+
+  export type SkinLesionSumAggregateOutputType = {
+    id: number | null
+    confidence: number | null
+  }
+
+  export type SkinLesionMinAggregateOutputType = {
+    id: number | null
+    patientName: string | null
+    imageUrl: string | null
+    diagnosis: string | null
+    confidence: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SkinLesionMaxAggregateOutputType = {
+    id: number | null
+    patientName: string | null
+    imageUrl: string | null
+    diagnosis: string | null
+    confidence: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type SkinLesionCountAggregateOutputType = {
+    id: number
+    patientName: number
+    imageUrl: number
+    diagnosis: number
+    confidence: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type SkinLesionAvgAggregateInputType = {
+    id?: true
+    confidence?: true
+  }
+
+  export type SkinLesionSumAggregateInputType = {
+    id?: true
+    confidence?: true
+  }
+
+  export type SkinLesionMinAggregateInputType = {
+    id?: true
+    patientName?: true
+    imageUrl?: true
+    diagnosis?: true
+    confidence?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SkinLesionMaxAggregateInputType = {
+    id?: true
+    patientName?: true
+    imageUrl?: true
+    diagnosis?: true
+    confidence?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type SkinLesionCountAggregateInputType = {
+    id?: true
+    patientName?: true
+    imageUrl?: true
+    diagnosis?: true
+    confidence?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type SkinLesionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SkinLesion to aggregate.
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkinLesions to fetch.
+     */
+    orderBy?: SkinLesionOrderByWithRelationInput | SkinLesionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SkinLesionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkinLesions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkinLesions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SkinLesions
+    **/
+    _count?: true | SkinLesionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SkinLesionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SkinLesionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SkinLesionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SkinLesionMaxAggregateInputType
+  }
+
+  export type GetSkinLesionAggregateType<T extends SkinLesionAggregateArgs> = {
+        [P in keyof T & keyof AggregateSkinLesion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSkinLesion[P]>
+      : GetScalarType<T[P], AggregateSkinLesion[P]>
+  }
+
+
+
+
+  export type SkinLesionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SkinLesionWhereInput
+    orderBy?: SkinLesionOrderByWithAggregationInput | SkinLesionOrderByWithAggregationInput[]
+    by: SkinLesionScalarFieldEnum[] | SkinLesionScalarFieldEnum
+    having?: SkinLesionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SkinLesionCountAggregateInputType | true
+    _avg?: SkinLesionAvgAggregateInputType
+    _sum?: SkinLesionSumAggregateInputType
+    _min?: SkinLesionMinAggregateInputType
+    _max?: SkinLesionMaxAggregateInputType
+  }
+
+  export type SkinLesionGroupByOutputType = {
+    id: number
+    patientName: string
+    imageUrl: string
+    diagnosis: string | null
+    confidence: number | null
+    createdAt: Date
+    updatedAt: Date
+    _count: SkinLesionCountAggregateOutputType | null
+    _avg: SkinLesionAvgAggregateOutputType | null
+    _sum: SkinLesionSumAggregateOutputType | null
+    _min: SkinLesionMinAggregateOutputType | null
+    _max: SkinLesionMaxAggregateOutputType | null
+  }
+
+  type GetSkinLesionGroupByPayload<T extends SkinLesionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SkinLesionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SkinLesionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SkinLesionGroupByOutputType[P]>
+            : GetScalarType<T[P], SkinLesionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SkinLesionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patientName?: boolean
+    imageUrl?: boolean
+    diagnosis?: boolean
+    confidence?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["skinLesion"]>
+
+  export type SkinLesionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patientName?: boolean
+    imageUrl?: boolean
+    diagnosis?: boolean
+    confidence?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["skinLesion"]>
+
+  export type SkinLesionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    patientName?: boolean
+    imageUrl?: boolean
+    diagnosis?: boolean
+    confidence?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["skinLesion"]>
+
+  export type SkinLesionSelectScalar = {
+    id?: boolean
+    patientName?: boolean
+    imageUrl?: boolean
+    diagnosis?: boolean
+    confidence?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type SkinLesionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientName" | "imageUrl" | "diagnosis" | "confidence" | "createdAt" | "updatedAt", ExtArgs["result"]["skinLesion"]>
+
+  export type $SkinLesionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SkinLesion"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      patientName: string
+      imageUrl: string
+      diagnosis: string | null
+      confidence: number | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["skinLesion"]>
+    composites: {}
+  }
+
+  type SkinLesionGetPayload<S extends boolean | null | undefined | SkinLesionDefaultArgs> = $Result.GetResult<Prisma.$SkinLesionPayload, S>
+
+  type SkinLesionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SkinLesionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SkinLesionCountAggregateInputType | true
+    }
+
+  export interface SkinLesionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SkinLesion'], meta: { name: 'SkinLesion' } }
+    /**
+     * Find zero or one SkinLesion that matches the filter.
+     * @param {SkinLesionFindUniqueArgs} args - Arguments to find a SkinLesion
+     * @example
+     * // Get one SkinLesion
+     * const skinLesion = await prisma.skinLesion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SkinLesionFindUniqueArgs>(args: SelectSubset<T, SkinLesionFindUniqueArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SkinLesion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SkinLesionFindUniqueOrThrowArgs} args - Arguments to find a SkinLesion
+     * @example
+     * // Get one SkinLesion
+     * const skinLesion = await prisma.skinLesion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SkinLesionFindUniqueOrThrowArgs>(args: SelectSubset<T, SkinLesionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SkinLesion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionFindFirstArgs} args - Arguments to find a SkinLesion
+     * @example
+     * // Get one SkinLesion
+     * const skinLesion = await prisma.skinLesion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SkinLesionFindFirstArgs>(args?: SelectSubset<T, SkinLesionFindFirstArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SkinLesion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionFindFirstOrThrowArgs} args - Arguments to find a SkinLesion
+     * @example
+     * // Get one SkinLesion
+     * const skinLesion = await prisma.skinLesion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SkinLesionFindFirstOrThrowArgs>(args?: SelectSubset<T, SkinLesionFindFirstOrThrowArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SkinLesions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SkinLesions
+     * const skinLesions = await prisma.skinLesion.findMany()
+     * 
+     * // Get first 10 SkinLesions
+     * const skinLesions = await prisma.skinLesion.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const skinLesionWithIdOnly = await prisma.skinLesion.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SkinLesionFindManyArgs>(args?: SelectSubset<T, SkinLesionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SkinLesion.
+     * @param {SkinLesionCreateArgs} args - Arguments to create a SkinLesion.
+     * @example
+     * // Create one SkinLesion
+     * const SkinLesion = await prisma.skinLesion.create({
+     *   data: {
+     *     // ... data to create a SkinLesion
+     *   }
+     * })
+     * 
+     */
+    create<T extends SkinLesionCreateArgs>(args: SelectSubset<T, SkinLesionCreateArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SkinLesions.
+     * @param {SkinLesionCreateManyArgs} args - Arguments to create many SkinLesions.
+     * @example
+     * // Create many SkinLesions
+     * const skinLesion = await prisma.skinLesion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SkinLesionCreateManyArgs>(args?: SelectSubset<T, SkinLesionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SkinLesions and returns the data saved in the database.
+     * @param {SkinLesionCreateManyAndReturnArgs} args - Arguments to create many SkinLesions.
+     * @example
+     * // Create many SkinLesions
+     * const skinLesion = await prisma.skinLesion.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SkinLesions and only return the `id`
+     * const skinLesionWithIdOnly = await prisma.skinLesion.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SkinLesionCreateManyAndReturnArgs>(args?: SelectSubset<T, SkinLesionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SkinLesion.
+     * @param {SkinLesionDeleteArgs} args - Arguments to delete one SkinLesion.
+     * @example
+     * // Delete one SkinLesion
+     * const SkinLesion = await prisma.skinLesion.delete({
+     *   where: {
+     *     // ... filter to delete one SkinLesion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SkinLesionDeleteArgs>(args: SelectSubset<T, SkinLesionDeleteArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SkinLesion.
+     * @param {SkinLesionUpdateArgs} args - Arguments to update one SkinLesion.
+     * @example
+     * // Update one SkinLesion
+     * const skinLesion = await prisma.skinLesion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SkinLesionUpdateArgs>(args: SelectSubset<T, SkinLesionUpdateArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SkinLesions.
+     * @param {SkinLesionDeleteManyArgs} args - Arguments to filter SkinLesions to delete.
+     * @example
+     * // Delete a few SkinLesions
+     * const { count } = await prisma.skinLesion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SkinLesionDeleteManyArgs>(args?: SelectSubset<T, SkinLesionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SkinLesions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SkinLesions
+     * const skinLesion = await prisma.skinLesion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SkinLesionUpdateManyArgs>(args: SelectSubset<T, SkinLesionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SkinLesions and returns the data updated in the database.
+     * @param {SkinLesionUpdateManyAndReturnArgs} args - Arguments to update many SkinLesions.
+     * @example
+     * // Update many SkinLesions
+     * const skinLesion = await prisma.skinLesion.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SkinLesions and only return the `id`
+     * const skinLesionWithIdOnly = await prisma.skinLesion.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SkinLesionUpdateManyAndReturnArgs>(args: SelectSubset<T, SkinLesionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SkinLesion.
+     * @param {SkinLesionUpsertArgs} args - Arguments to update or create a SkinLesion.
+     * @example
+     * // Update or create a SkinLesion
+     * const skinLesion = await prisma.skinLesion.upsert({
+     *   create: {
+     *     // ... data to create a SkinLesion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SkinLesion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SkinLesionUpsertArgs>(args: SelectSubset<T, SkinLesionUpsertArgs<ExtArgs>>): Prisma__SkinLesionClient<$Result.GetResult<Prisma.$SkinLesionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SkinLesions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionCountArgs} args - Arguments to filter SkinLesions to count.
+     * @example
+     * // Count the number of SkinLesions
+     * const count = await prisma.skinLesion.count({
+     *   where: {
+     *     // ... the filter for the SkinLesions we want to count
+     *   }
+     * })
+    **/
+    count<T extends SkinLesionCountArgs>(
+      args?: Subset<T, SkinLesionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SkinLesionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SkinLesion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SkinLesionAggregateArgs>(args: Subset<T, SkinLesionAggregateArgs>): Prisma.PrismaPromise<GetSkinLesionAggregateType<T>>
+
+    /**
+     * Group by SkinLesion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SkinLesionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SkinLesionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SkinLesionGroupByArgs['orderBy'] }
+        : { orderBy?: SkinLesionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SkinLesionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSkinLesionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SkinLesion model
+   */
+  readonly fields: SkinLesionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SkinLesion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SkinLesionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SkinLesion model
+   */
+  interface SkinLesionFieldRefs {
+    readonly id: FieldRef<"SkinLesion", 'Int'>
+    readonly patientName: FieldRef<"SkinLesion", 'String'>
+    readonly imageUrl: FieldRef<"SkinLesion", 'String'>
+    readonly diagnosis: FieldRef<"SkinLesion", 'String'>
+    readonly confidence: FieldRef<"SkinLesion", 'Float'>
+    readonly createdAt: FieldRef<"SkinLesion", 'DateTime'>
+    readonly updatedAt: FieldRef<"SkinLesion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SkinLesion findUnique
+   */
+  export type SkinLesionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * Filter, which SkinLesion to fetch.
+     */
+    where: SkinLesionWhereUniqueInput
+  }
+
+  /**
+   * SkinLesion findUniqueOrThrow
+   */
+  export type SkinLesionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * Filter, which SkinLesion to fetch.
+     */
+    where: SkinLesionWhereUniqueInput
+  }
+
+  /**
+   * SkinLesion findFirst
+   */
+  export type SkinLesionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * Filter, which SkinLesion to fetch.
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkinLesions to fetch.
+     */
+    orderBy?: SkinLesionOrderByWithRelationInput | SkinLesionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SkinLesions.
+     */
+    cursor?: SkinLesionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkinLesions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkinLesions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SkinLesions.
+     */
+    distinct?: SkinLesionScalarFieldEnum | SkinLesionScalarFieldEnum[]
+  }
+
+  /**
+   * SkinLesion findFirstOrThrow
+   */
+  export type SkinLesionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * Filter, which SkinLesion to fetch.
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkinLesions to fetch.
+     */
+    orderBy?: SkinLesionOrderByWithRelationInput | SkinLesionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SkinLesions.
+     */
+    cursor?: SkinLesionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkinLesions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkinLesions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SkinLesions.
+     */
+    distinct?: SkinLesionScalarFieldEnum | SkinLesionScalarFieldEnum[]
+  }
+
+  /**
+   * SkinLesion findMany
+   */
+  export type SkinLesionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * Filter, which SkinLesions to fetch.
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SkinLesions to fetch.
+     */
+    orderBy?: SkinLesionOrderByWithRelationInput | SkinLesionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SkinLesions.
+     */
+    cursor?: SkinLesionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SkinLesions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SkinLesions.
+     */
+    skip?: number
+    distinct?: SkinLesionScalarFieldEnum | SkinLesionScalarFieldEnum[]
+  }
+
+  /**
+   * SkinLesion create
+   */
+  export type SkinLesionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * The data needed to create a SkinLesion.
+     */
+    data: XOR<SkinLesionCreateInput, SkinLesionUncheckedCreateInput>
+  }
+
+  /**
+   * SkinLesion createMany
+   */
+  export type SkinLesionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SkinLesions.
+     */
+    data: SkinLesionCreateManyInput | SkinLesionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SkinLesion createManyAndReturn
+   */
+  export type SkinLesionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * The data used to create many SkinLesions.
+     */
+    data: SkinLesionCreateManyInput | SkinLesionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SkinLesion update
+   */
+  export type SkinLesionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * The data needed to update a SkinLesion.
+     */
+    data: XOR<SkinLesionUpdateInput, SkinLesionUncheckedUpdateInput>
+    /**
+     * Choose, which SkinLesion to update.
+     */
+    where: SkinLesionWhereUniqueInput
+  }
+
+  /**
+   * SkinLesion updateMany
+   */
+  export type SkinLesionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SkinLesions.
+     */
+    data: XOR<SkinLesionUpdateManyMutationInput, SkinLesionUncheckedUpdateManyInput>
+    /**
+     * Filter which SkinLesions to update
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * Limit how many SkinLesions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SkinLesion updateManyAndReturn
+   */
+  export type SkinLesionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * The data used to update SkinLesions.
+     */
+    data: XOR<SkinLesionUpdateManyMutationInput, SkinLesionUncheckedUpdateManyInput>
+    /**
+     * Filter which SkinLesions to update
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * Limit how many SkinLesions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SkinLesion upsert
+   */
+  export type SkinLesionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * The filter to search for the SkinLesion to update in case it exists.
+     */
+    where: SkinLesionWhereUniqueInput
+    /**
+     * In case the SkinLesion found by the `where` argument doesn't exist, create a new SkinLesion with this data.
+     */
+    create: XOR<SkinLesionCreateInput, SkinLesionUncheckedCreateInput>
+    /**
+     * In case the SkinLesion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SkinLesionUpdateInput, SkinLesionUncheckedUpdateInput>
+  }
+
+  /**
+   * SkinLesion delete
+   */
+  export type SkinLesionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+    /**
+     * Filter which SkinLesion to delete.
+     */
+    where: SkinLesionWhereUniqueInput
+  }
+
+  /**
+   * SkinLesion deleteMany
+   */
+  export type SkinLesionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SkinLesions to delete
+     */
+    where?: SkinLesionWhereInput
+    /**
+     * Limit how many SkinLesions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SkinLesion without action
+   */
+  export type SkinLesionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SkinLesion
+     */
+    select?: SkinLesionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SkinLesion
+     */
+    omit?: SkinLesionOmit<ExtArgs> | null
+  }
+
 
   /**
    * Model User
@@ -1886,6 +3036,19 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
+  export const SkinLesionScalarFieldEnum: {
+    id: 'id',
+    patientName: 'patientName',
+    imageUrl: 'imageUrl',
+    diagnosis: 'diagnosis',
+    confidence: 'confidence',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SkinLesionScalarFieldEnum = (typeof SkinLesionScalarFieldEnum)[keyof typeof SkinLesionScalarFieldEnum]
+
+
   export const UserScalarFieldEnum: {
     id: 'id',
     username: 'username',
@@ -1909,6 +3072,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -1956,10 +3127,88 @@ export namespace Prisma {
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
+
+
+  /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
   /**
    * Deep Input Types
    */
 
+
+  export type SkinLesionWhereInput = {
+    AND?: SkinLesionWhereInput | SkinLesionWhereInput[]
+    OR?: SkinLesionWhereInput[]
+    NOT?: SkinLesionWhereInput | SkinLesionWhereInput[]
+    id?: IntFilter<"SkinLesion"> | number
+    patientName?: StringFilter<"SkinLesion"> | string
+    imageUrl?: StringFilter<"SkinLesion"> | string
+    diagnosis?: StringNullableFilter<"SkinLesion"> | string | null
+    confidence?: FloatNullableFilter<"SkinLesion"> | number | null
+    createdAt?: DateTimeFilter<"SkinLesion"> | Date | string
+    updatedAt?: DateTimeFilter<"SkinLesion"> | Date | string
+  }
+
+  export type SkinLesionOrderByWithRelationInput = {
+    id?: SortOrder
+    patientName?: SortOrder
+    imageUrl?: SortOrder
+    diagnosis?: SortOrderInput | SortOrder
+    confidence?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SkinLesionWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: SkinLesionWhereInput | SkinLesionWhereInput[]
+    OR?: SkinLesionWhereInput[]
+    NOT?: SkinLesionWhereInput | SkinLesionWhereInput[]
+    patientName?: StringFilter<"SkinLesion"> | string
+    imageUrl?: StringFilter<"SkinLesion"> | string
+    diagnosis?: StringNullableFilter<"SkinLesion"> | string | null
+    confidence?: FloatNullableFilter<"SkinLesion"> | number | null
+    createdAt?: DateTimeFilter<"SkinLesion"> | Date | string
+    updatedAt?: DateTimeFilter<"SkinLesion"> | Date | string
+  }, "id">
+
+  export type SkinLesionOrderByWithAggregationInput = {
+    id?: SortOrder
+    patientName?: SortOrder
+    imageUrl?: SortOrder
+    diagnosis?: SortOrderInput | SortOrder
+    confidence?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: SkinLesionCountOrderByAggregateInput
+    _avg?: SkinLesionAvgOrderByAggregateInput
+    _max?: SkinLesionMaxOrderByAggregateInput
+    _min?: SkinLesionMinOrderByAggregateInput
+    _sum?: SkinLesionSumOrderByAggregateInput
+  }
+
+  export type SkinLesionScalarWhereWithAggregatesInput = {
+    AND?: SkinLesionScalarWhereWithAggregatesInput | SkinLesionScalarWhereWithAggregatesInput[]
+    OR?: SkinLesionScalarWhereWithAggregatesInput[]
+    NOT?: SkinLesionScalarWhereWithAggregatesInput | SkinLesionScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"SkinLesion"> | number
+    patientName?: StringWithAggregatesFilter<"SkinLesion"> | string
+    imageUrl?: StringWithAggregatesFilter<"SkinLesion"> | string
+    diagnosis?: StringNullableWithAggregatesFilter<"SkinLesion"> | string | null
+    confidence?: FloatNullableWithAggregatesFilter<"SkinLesion"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"SkinLesion"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SkinLesion"> | Date | string
+  }
 
   export type UserWhereInput = {
     AND?: UserWhereInput | UserWhereInput[]
@@ -2003,6 +3252,73 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"User"> | number
     username?: StringWithAggregatesFilter<"User"> | string
     password?: StringWithAggregatesFilter<"User"> | string
+  }
+
+  export type SkinLesionCreateInput = {
+    patientName: string
+    imageUrl: string
+    diagnosis?: string | null
+    confidence?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SkinLesionUncheckedCreateInput = {
+    id?: number
+    patientName: string
+    imageUrl: string
+    diagnosis?: string | null
+    confidence?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SkinLesionUpdateInput = {
+    patientName?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
+    confidence?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SkinLesionUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patientName?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
+    confidence?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SkinLesionCreateManyInput = {
+    id?: number
+    patientName: string
+    imageUrl: string
+    diagnosis?: string | null
+    confidence?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SkinLesionUpdateManyMutationInput = {
+    patientName?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
+    confidence?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SkinLesionUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    patientName?: StringFieldUpdateOperationsInput | string
+    imageUrl?: StringFieldUpdateOperationsInput | string
+    diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
+    confidence?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserCreateInput = {
@@ -2070,30 +3386,86 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type UserCountOrderByAggregateInput = {
-    id?: SortOrder
-    username?: SortOrder
-    password?: SortOrder
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type UserAvgOrderByAggregateInput = {
-    id?: SortOrder
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
-  export type UserMaxOrderByAggregateInput = {
-    id?: SortOrder
-    username?: SortOrder
-    password?: SortOrder
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type UserMinOrderByAggregateInput = {
-    id?: SortOrder
-    username?: SortOrder
-    password?: SortOrder
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
   }
 
-  export type UserSumOrderByAggregateInput = {
+  export type SkinLesionCountOrderByAggregateInput = {
     id?: SortOrder
+    patientName?: SortOrder
+    imageUrl?: SortOrder
+    diagnosis?: SortOrder
+    confidence?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SkinLesionAvgOrderByAggregateInput = {
+    id?: SortOrder
+    confidence?: SortOrder
+  }
+
+  export type SkinLesionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    patientName?: SortOrder
+    imageUrl?: SortOrder
+    diagnosis?: SortOrder
+    confidence?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SkinLesionMinOrderByAggregateInput = {
+    id?: SortOrder
+    patientName?: SortOrder
+    imageUrl?: SortOrder
+    diagnosis?: SortOrder
+    confidence?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SkinLesionSumOrderByAggregateInput = {
+    id?: SortOrder
+    confidence?: SortOrder
   }
 
   export type IntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2130,8 +3502,98 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type UserCountOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type UserAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type UserMaxOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type UserMinOrderByAggregateInput = {
+    id?: SortOrder
+    username?: SortOrder
+    password?: SortOrder
+  }
+
+  export type UserSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2165,6 +3627,42 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2209,6 +3707,64 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
 
