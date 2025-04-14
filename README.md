@@ -73,9 +73,9 @@ npx turbo link
 ```
 
 ## Important Command for running pm2:
-  -pm2 start npm --name "web-server" -- start
-  -pm2 start npm --name "http-server" -- start
-  -pm2 start npm --name "ws-server" -- start
+  - pm2 start npm --name "web-server" -- start
+  - pm2 start npm --name "http-server" -- start
+  - pm2 start npm --name "ws-server" -- start
 
 ## Useful Links
 
