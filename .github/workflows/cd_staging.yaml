@@ -30,5 +30,12 @@ jobs:
             nvm use 23
             pnpm install
             pnpm run build
-            pm2 restart all 
+            cd app/http-server
+            pm2 start npm --name "http-server" -- restart
+            cd ..
+            cd aap/ws-server
+            pm2 start npm --name "ws-server" -- restart
+            cd ..
+            cd aap/web 
+            pm2 start npm --name "web" -- restart
             EOF
