@@ -20,9 +20,10 @@ jobs:
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: ssh and Deploy Everything
         run: |
-            ssh -i ~/ssh_key ubuntu@16.171.249.33 
+            ssh -i ~/ssh_key -o StrictHostKeyChecking=yes ubuntu@16.171.249.33 << 'EOF'
             cd ./code-twins
             git pull origin main
             pnpm install
             pnpm run build
-            pm2 restart all
+            pm2 restart all 
+            EOF
