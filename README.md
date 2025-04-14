@@ -87,3 +87,20 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/docs/reference/command-line-reference)
+
+
+## WorkFlow Basic template:
+    name: My First Workflow # optional - just a name
+
+  on: push  # triggers - when the workflow should run
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest  # the virtual machine (runner) to use
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3  # this step checks out your code
+
+        - name: Run a command
+          run: echo "Hello, world!"
