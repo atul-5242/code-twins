@@ -21,13 +21,12 @@ jobs:
       - name: ssh and Deploy Everything
         run: |
             ssh -i ~/ssh_key -o StrictHostKeyChecking=yes ubuntu@16.171.249.33 << 'EOF'
-            cd ./code-twins
+            cd /home/ubuntu/code-twins || exit 1
             git pull origin main 
-            export NVM_DIR="$HOME/.nvm"
-            source "$NVM_DIR/nvm.sh"
+            export NVM_DIR="\$HOME/.nvm"
+            source "\$NVM_DIR/nvm.sh"
             nvm use 23
             pnpm install
             pnpm run build
             pm2 restart all 
             EOF
-            
